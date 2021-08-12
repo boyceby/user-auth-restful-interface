@@ -26,13 +26,8 @@ def resetDB():
                             `password_hash` text NOT NULL,
                             PRIMARY KEY (`id`),
                             UNIQUE KEY `username` (`username`)
-                        ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+                        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
         """)
-        db.commit() # TODO - need this? and issues with 'db' name shadowing?
 
 def init_app(app):
     app.teardown_appcontext(close_db)
-
-if __name__ == "__main__":
-    print("Resetting database...")
-    resetDB()
