@@ -19,6 +19,7 @@ def registerUser():
     session['username'] = user.getUsername()
     return  {
                 'status': "created",
+                'logged_in': True,
                 'user': user.jsonable()
             }
 
