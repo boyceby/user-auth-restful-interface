@@ -1,22 +1,17 @@
 import os
 from flask import Flask
 
-def create_app(test_config=None):
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY="development_key",
-        DATABASE=os.path.join(app.instance_path, "db.py") # TODO - to potentially update this line
-    )
+def create_app():
 
-    if test_config is None:
-        app.config.from_pyfile("config.py", silent=True)
-    else:
-        app.config.from_mapping(test_config)
+    app = Flask(__name__, instance_relative_config=True)
 
     try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+        import production
+        # Use production config (located in 'instance/') if production indication file 'production' exists
+        app.config.from_pyfile('config.py')
+    except Exception as e:
+        # Use development config (located in root directory)
+        app.config.from_object('config')
 
     from . import db
     db.init_app(app)
