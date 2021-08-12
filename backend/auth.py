@@ -34,11 +34,10 @@ def logInOut():
             session['username'] = user.getUsername()
             return  {
                         'logged_in': True,
-                        'status': "created",
                         'user': user.jsonable()
                     }
     session.pop('username', default=None)
-    return "Logged out."
+    return {'logged_in': False}
 
 @bp.route('/logged_in', methods=['GET'])
 def loggedIn():    
