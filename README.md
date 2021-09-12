@@ -3,7 +3,7 @@ A RESTful interface offering cookie-based user authentication using the Argon2 c
 
 The interface supports three endpoints: registrations, sessions, and logged_in. Registrations can be used to create user accounts, sessions can be used to log users in and out, and logged_in can be used to check whether or not a user is currently logged in.
 
-During user registration, the interface enforces a number of restrictions having to do with the validity of certain usernames and passwords, including that: (1) usernames must not already be registered with the server, (2) usernames must not be empty or all white-space, (3) usernames must be between 8 and 20 characters long, (4) passwords must not be empty or all white-space, and (5) passwords must be at least 8 characters long.
+During user registration, the interface enforces a number of restrictions having to do with the validity of registering certain usernames and passwords, including that: (1) usernames must not already be registered with the server, (2) usernames must not be empty or all white-space, (3) usernames must be between 8 and 20 characters long, (4) passwords must not be empty or all white-space, and (5) passwords must be at least 8 characters long.
 
 ## Creating an account - POST on '/auth/registrations'
 | Method | Request Body | Response Body | Status Code
