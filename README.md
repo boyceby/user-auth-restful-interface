@@ -1,7 +1,7 @@
 # user-auth-restful-interface
-A RESTful interface offering cookie-based user authentication using the Argon2 cryptographic hashing function to hash and store passwords in a MySQL database. Uses an object relational mapping (ORM) to manage interactions with the database and is written using Flask.
+A RESTful interface offering cookie-based user authentication. Uses the Argon2 cryptographic hashing function to hash passwords and stores these hashed passwords in a MySQL database. Uses an object relational mapping (ORM) to manage interactions with the database. Written using Flask.
 
-The interface supports three endpoints: registrations, sessions, and logged_in. Registrations can be used to create user accounts, sessions can be used to log users in and out, and logged_in can be used to check whether or not a user is currently logged in.
+The interface supports three endpoints: '/auth/registrations', '/auth/sessions', and '/auth/logged_in'. POSTs on '/auth/registrations' can be used to create user accounts, POSTs and DELETEs on '/auth/sessions' can be used to log users in and out, and GETs on '/auth/logged_in' can be used to check whether or not a user is currently logged in.
 
 During user registration, the interface enforces a number of restrictions having to do with the validity of registering certain usernames and passwords, including that: (1) usernames must not already be registered with the server, (2) usernames must not be empty or all white-space, (3) usernames must be between 8 and 20 characters long, (4) passwords must not be empty or all white-space, and (5) passwords must be at least 8 characters long.
 
