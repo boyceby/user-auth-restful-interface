@@ -23,7 +23,7 @@ During user registration, the interface enforces a number of restrictions having
 | POST | {<br />  "username": "validusername",<br/> "password": "validpassword"<br/>} | {<br/>"logged_in": true,<br/>"user": {<br/>"id": unique integer id,<br/>"username": "exampleusername"<br/>}<br/>} | 200 |
 | POST | {<br />  "username": "validusername",<br/> "password": "invalidpassword"<br/>} | "Invalid login credentials." | 400 |
 | POST | {<br />  "username": "invalidusername",<br/> "password": "password"<br/>} | "Invalid login credentials." | 400 |
-| DELETE | {<br />  "username": "exampleusername",<br/> "password": "examplepassword"<br/>} | {<br/>"logged_in": false<br/>} | 200 |
+| DELETE | NONE (cookie-header-based) | {<br/>"logged_in": false<br/>} | 200 |
 
 ## Checking for whether a user is logged in - '/auth/logged_in'
 | Method | Request Body | Response Body | Status Code |
